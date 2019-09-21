@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">marketim</string>
+    <string name="txt_app_name">MARKETİM</string>
+    <string name="edt_username">Kullanıcı Adı</string>
+    <string name="edt_password">Şifre</string>
+    <string name="switch_remember_me">Beni Hatırla</string>
+    <string name="btn_login">Giriş</string>
+
+    <string name="btn_logout">Çıkış Yap</string>
+    <string name="btn_orders">Siparişlerim</string>
+
+    <string name="error_login">Kullanıcı adı veya şifre hatalı</string>
+    <string name="edt_null">Boş bırakmayınız</string>
+</resources>
