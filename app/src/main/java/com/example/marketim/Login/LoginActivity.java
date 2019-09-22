@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.example.marketim.HomeScreen.HomeScreenActivity;
+import com.example.marketim.HomeScreen.ui.HomeScreenActivity;
 import com.example.marketim.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
@@ -18,20 +18,20 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private Button btn_login;
     private EditText edt_username, edt_password;
     private Switch remember_me;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         presenter = new LoginPresenter(this);
-        if(presenter.isLogged(getApplicationContext()))
+        if (presenter.isLogged(getApplicationContext())) // beni hatıla seçilmişse anasayfaya geç
             userLogged();
-
         init();
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.login(getApplicationContext(),edt_username.getText().toString(), edt_password.getText().toString(), remember_me.isChecked());
+                presenter.login(getApplicationContext(), edt_username.getText().toString(), edt_password.getText().toString(), remember_me.isChecked());
             }
         });
     }
@@ -47,14 +47,18 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void loginError() {
         Toast.makeText(this, getString(R.string.error_login), Toast.LENGTH_LONG).show();
     }
+
     @Override
     public void userLogged() {
         startActivity(new Intent(this, HomeScreenActivity.class));
+        finish();
     }
+
     @Override
     public void setErrorUsername() {
         edt_username.setError(getString(R.string.edt_null));
     }
+
     @Override
     public void setErrorPassword() {
         edt_password.setError(getString(R.string.edt_null));

@@ -16,15 +16,13 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void login(Context context, String username, String password, Boolean rememberMe) {
-        if(username.length()<1){
+        if (username.length() < 1) {
             view.setErrorUsername();
-        }
-        else if(password.length()<1){
+        } else if (password.length() < 1) {
             view.setErrorPassword();
-        }
-        else {
+        } else {
             if (new LoginService().login(username, password)) {
-                if(rememberMe)
+                if (rememberMe) // beni hatırla seçili ise, bu seçimi kaydet
                     SharedPreferencesManagerHelper.setRememberMe(context);
                 user.setUser(username, password);
                 view.userLogged();
@@ -35,8 +33,8 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public boolean isLogged(Context context){
-        if(SharedPreferencesManagerHelper.getRememberMe(context) != null)
+    public boolean isLogged(Context context) { //  sonraki girişlerde giriş ekranı veya anasayfaya geçmek için kontrol
+        if (SharedPreferencesManagerHelper.getRememberMe(context) != null)
             return true;
         return false;
     }

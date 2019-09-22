@@ -11,4 +11,9 @@
 
     <string name="error_login">Kullanıcı adı veya şifre hatalı</string>
     <string name="edt_null">Boş bırakmayınız</string>
+
+    <string name="logout_alert_header">Çıkış Yapılıyor</string>
+    <string name="logout_alert_body">Çıkış yapmak istiyor musunuz?</string>
+    <string name="no">Hayır</string>
+    <string name="yes">Evet</string>
 </resources>

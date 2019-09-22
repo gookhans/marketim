@@ -1,8 +1,5 @@
 package com.example.marketim.Services;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
@@ -24,16 +21,11 @@ public class OrdersService implements JSONArrayRequestListener {
     }
 
     public void get() {
-        Log.e("gelid","gegegewg");
         method = NetworkMethod.GET;
         AndroidNetworking.get(BASE_URL)
                 .setPriority(Priority.HIGH)
                 .build()
                 .getAsJSONArray(this);
-    }
-
-    public void cancelRequest(NetworkMethod type) {
-        AndroidNetworking.cancel( BASE_URL + "_" + type.toString());
     }
 
     @Override

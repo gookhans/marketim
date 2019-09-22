@@ -12,6 +12,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#FFFFFF"
-        android:text="@string/txt_app_name"/>
+        android:text="@string/txt_app_name" />
 
 </LinearLayout>
